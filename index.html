@@ -3,110 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zsnixstudo - Telegram Directory</title>
+    <title>Zsnixstudo - Rainbow Channels</title>
     <style>
-        /* CSS ကို ဒီထဲမှာ တစ်ခါတည်း ထည့်ထားပါတယ် */
+        @keyframes rainbowGlow {
+            0% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 165, 0, 0.8), 0 0 40px rgba(255, 255, 0, 0.8), 0 0 50px rgba(0, 128, 0, 0.8), 0 0 60px rgba(0, 0, 255, 0.8), 0 0 70px rgba(75, 0, 130, 0.8), 0 0 80px rgba(238, 130, 238, 0.8); }
+            14% { box-shadow: 0 0 20px rgba(255, 165, 0, 0.8), 0 0 30px rgba(255, 255, 0, 0.8), 0 0 40px rgba(0, 128, 0, 0.8), 0 0 50px rgba(0, 0, 255, 0.8), 0 0 60px rgba(75, 0, 130, 0.8), 0 0 70px rgba(238, 130, 238, 0.8), 0 0 80px rgba(255, 0, 0, 0.8); }
+            28% { box-shadow: 0 0 20px rgba(255, 255, 0, 0.8), 0 0 30px rgba(0, 128, 0, 0.8), 0 0 40px rgba(0, 0, 255, 0.8), 0 0 50px rgba(75, 0, 130, 0.8), 0 0 60px rgba(238, 130, 238, 0.8), 0 0 70px rgba(255, 0, 0, 0.8), 0 0 80px rgba(255, 165, 0, 0.8); }
+            42% { box-shadow: 0 0 20px rgba(0, 128, 0, 0.8), 0 0 30px rgba(0, 0, 255, 0.8), 0 0 40px rgba(75, 0, 130, 0.8), 0 0 50px rgba(238, 130, 238, 0.8), 0 0 60px rgba(255, 0, 0, 0.8), 0 0 70px rgba(255, 165, 0, 0.8), 0 0 80px rgba(255, 255, 0, 0.8); }
+            56% { box-shadow: 0 0 20px rgba(0, 0, 255, 0.8), 0 0 30px rgba(75, 0, 130, 0.8), 0 0 40px rgba(238, 130, 238, 0.8), 0 0 50px rgba(255, 0, 0, 0.8), 0 0 60px rgba(255, 165, 0, 0.8), 0 0 70px rgba(255, 255, 0, 0.8), 0 0 80px rgba(0, 128, 0, 0.8); }
+            70% { box-shadow: 0 0 20px rgba(75, 0, 130, 0.8), 0 0 30px rgba(238, 130, 238, 0.8), 0 0 40px rgba(255, 0, 0, 0.8), 0 0 50px rgba(255, 165, 0, 0.8), 0 0 60px rgba(255, 255, 0, 0.8), 0 0 70px rgba(0, 128, 0, 0.8), 0 0 80px rgba(0, 0, 255, 0.8); }
+            84% { box-shadow: 0 0 20px rgba(238, 130, 238, 0.8), 0 0 30px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 165, 0, 0.8), 0 0 50px rgba(255, 255, 0, 0.8), 0 0 60px rgba(0, 128, 0, 0.8), 0 0 70px rgba(0, 0, 255, 0.8), 0 0 80px rgba(75, 0, 130, 0.8); }
+            100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 165, 0, 0.8), 0 0 40px rgba(255, 255, 0, 0.8), 0 0 50px rgba(0, 128, 0, 0.8), 0 0 60px rgba(0, 0, 255, 0.8), 0 0 70px rgba(75, 0, 130, 0.8), 0 0 80px rgba(238, 130, 238, 0.8); }
+        }
+
         body {
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('Zsnixstudo.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background: #1a1a1a; /* အမှောင်နောက်ခံ */
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
-        }
-
-        /* ပုံပေါ်မှာ စာကြည်လင်အောင် အမှောင်လွှာ အုပ်ထားတာပါ */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1;
+            overflow: hidden; /* Scrollbar မပေါ်အောင် */
         }
 
         .container {
             position: relative;
-            z-index: 2;
             text-align: center;
             width: 90%;
-            max-width: 400px;
+            max-width: 450px; /* အနည်းငယ် ပိုကျယ်လာအောင် */
+            background: rgba(0, 0, 0, 0.6); /* Box နောက်ခံ အမှောင်ဖျော့ */
+            padding: 40px 30px;
+            border-radius: 20px;
+            /* Rainbow Glow Animation */
+            animation: rainbowGlow 10s infinite alternate;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8); /* Start with red glow */
+        }
+
+        .logo {
+            width: 150px; /* Logo အရွယ်အစား */
+            height: 150px;
+            border-radius: 50%; /* အဝိုင်းပုံစံဖြစ်အောင် */
+            object-fit: cover; /* ပုံမပျက်အောင် */
+            margin-bottom: 25px;
+            border: 4px solid white; /* Logo အနားသတ်ဖြူ */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Logo ကို အဖြူရောင် glow ပေးခြင်း */
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 10px;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7); /* စာလုံးကို glow ပေးခြင်း */
         }
 
         p {
-            margin-bottom: 30px;
-            color: #ccc;
+            margin-bottom: 40px;
+            color: #e0e0e0;
+            font-size: 1.1em;
         }
 
         .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
         }
 
         .glow-button {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 15px;
+            padding: 18px 25px;
             text-decoration: none;
             color: white;
             font-weight: bold;
-            font-size: 1.1rem;
-            border: 2px solid #ff0000;
+            font-size: 1.2rem;
             border-radius: 12px;
-            background: rgba(255, 0, 0, 0.1);
-            transition: 0.3s;
-            /* အနီရောင် Glow Effect */
-            box-shadow: 0 0 10px #ff0000, inset 0 0 5px #ff0000;
+            background: rgba(255, 0, 0, 0.2); /* အနီရောင်မှိန်မှိန် */
+            transition: 0.4s ease-in-out;
+            border: 2px solid #ff0000; /* အနီရောင် အနားသတ် */
+            box-shadow: 0 0 15px #ff0000; /* အနီရောင် Glow */
         }
 
+        /* Button Hover Effect ကို Rainbow Glow နဲ့လိုက်အောင် ပြောင်းလဲခြင်း */
         .glow-button:hover {
-            background: #ff0000;
-            box-shadow: 0 0 25px #ff0000, 0 0 50px #ff4444;
-            transform: scale(1.05);
+            background: rgba(255, 0, 0, 0.5); /* Hover လုပ်ရင် ပိုနီလာအောင် */
+            transform: translateY(-5px) scale(1.03); /* အနည်းငယ် မြင့်တက်ပြီး ကြီးလာအောင် */
+            box-shadow: 0 0 20px #ff0000, 0 0 40px #ff4444; /* Glow ပိုတောက်ပလာအောင် */
+            border-color: #ff4444;
         }
 
-        /* ပုံထည့်ချင်ရင် သုံးဖို့ icon style */
+        /* Button အတွင်း ပုံစံ */
         .btn-icon {
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             margin-right: 15px;
-            object-fit: cover;
-            border-radius: 5px;
+            object-fit: contain;
+            border-radius: 8px; /* အနည်းငယ် ဝိုင်းအောင် */
         }
     </style>
 </head>
 <body>
 
-    <div class="overlay"></div>
-
     <div class="container">
+        <img src="Zsnixstudo.jpg" alt="Zsnixstudo Logo" class="logo">
+        
         <h1>ZSNIXSTUDO</h1>
-        <p>Choose your Telegram Channel</p>
+        <p>Discover Your Favorite Telegram Channels</p>
 
         <div class="btn-group">
-            <a href="https://t.me/Zsnix" class="glow-button">
+            <a href="https://t.me/your_channel_link_1" target="_blank" class="glow-button">
                 CHANNEL ONE
             </a>
 
-            <a href="https://t.me/Riko_Zix" class="glow-button">
+            <a href="https://t.me/your_channel_link_2" target="_blank" class="glow-button">
                 CHANNEL TWO
             </a>
 
-            <a href="https://t.me/Zsnix_Rix" class="glow-button">
+            <a href="https://t.me/your_channel_link_3" target="_blank" class="glow-button">
                 CHANNEL THREE
             </a>
         </div>
