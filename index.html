@@ -3,128 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zsnixstudo - Rainbow Channels</title>
+    <title>ZSNIX STUDIO - Rainbow Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap" rel="stylesheet">
     <style>
-        @keyframes rainbowGlow {
-            0% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 165, 0, 0.8), 0 0 40px rgba(255, 255, 0, 0.8), 0 0 50px rgba(0, 128, 0, 0.8), 0 0 60px rgba(0, 0, 255, 0.8), 0 0 70px rgba(75, 0, 130, 0.8), 0 0 80px rgba(238, 130, 238, 0.8); }
-            14% { box-shadow: 0 0 20px rgba(255, 165, 0, 0.8), 0 0 30px rgba(255, 255, 0, 0.8), 0 0 40px rgba(0, 128, 0, 0.8), 0 0 50px rgba(0, 0, 255, 0.8), 0 0 60px rgba(75, 0, 130, 0.8), 0 0 70px rgba(238, 130, 238, 0.8), 0 0 80px rgba(255, 0, 0, 0.8); }
-            28% { box-shadow: 0 0 20px rgba(255, 255, 0, 0.8), 0 0 30px rgba(0, 128, 0, 0.8), 0 0 40px rgba(0, 0, 255, 0.8), 0 0 50px rgba(75, 0, 130, 0.8), 0 0 60px rgba(238, 130, 238, 0.8), 0 0 70px rgba(255, 0, 0, 0.8), 0 0 80px rgba(255, 165, 0, 0.8); }
-            42% { box-shadow: 0 0 20px rgba(0, 128, 0, 0.8), 0 0 30px rgba(0, 0, 255, 0.8), 0 0 40px rgba(75, 0, 130, 0.8), 0 0 50px rgba(238, 130, 238, 0.8), 0 0 60px rgba(255, 0, 0, 0.8), 0 0 70px rgba(255, 165, 0, 0.8), 0 0 80px rgba(255, 255, 0, 0.8); }
-            56% { box-shadow: 0 0 20px rgba(0, 0, 255, 0.8), 0 0 30px rgba(75, 0, 130, 0.8), 0 0 40px rgba(238, 130, 238, 0.8), 0 0 50px rgba(255, 0, 0, 0.8), 0 0 60px rgba(255, 165, 0, 0.8), 0 0 70px rgba(255, 255, 0, 0.8), 0 0 80px rgba(0, 128, 0, 0.8); }
-            70% { box-shadow: 0 0 20px rgba(75, 0, 130, 0.8), 0 0 30px rgba(238, 130, 238, 0.8), 0 0 40px rgba(255, 0, 0, 0.8), 0 0 50px rgba(255, 165, 0, 0.8), 0 0 60px rgba(255, 255, 0, 0.8), 0 0 70px rgba(0, 128, 0, 0.8), 0 0 80px rgba(0, 0, 255, 0.8); }
-            84% { box-shadow: 0 0 20px rgba(238, 130, 238, 0.8), 0 0 30px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 165, 0, 0.8), 0 0 50px rgba(255, 255, 0, 0.8), 0 0 60px rgba(0, 128, 0, 0.8), 0 0 70px rgba(0, 0, 255, 0.8), 0 0 80px rgba(75, 0, 130, 0.8); }
-            100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 165, 0, 0.8), 0 0 40px rgba(255, 255, 0, 0.8), 0 0 50px rgba(0, 128, 0, 0.8), 0 0 60px rgba(0, 0, 255, 0.8), 0 0 70px rgba(75, 0, 130, 0.8), 0 0 80px rgba(238, 130, 238, 0.8); }
+        /* Rainbow Animation အတွက် Code */
+        @keyframes rainbowRotate {
+            0% { border-color: #ff0000; box-shadow: 0 0 10px rgba(255, 0, 0, 0.3); }
+            20% { border-color: #ffff00; box-shadow: 0 0 10px rgba(255, 255, 0, 0.3); }
+            40% { border-color: #00ff00; box-shadow: 0 0 10px rgba(0, 255, 0, 0.3); }
+            60% { border-color: #00ffff; box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); }
+            80% { border-color: #0000ff; box-shadow: 0 0 10px rgba(0, 0, 255, 0.3); }
+            100% { border-color: #ff00ff; box-shadow: 0 0 10px rgba(255, 0, 255, 0.3); }
         }
 
         body {
             margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #1a1a1a; /* အမှောင်နောက်ခံ */
-            height: 100vh;
+            background: #0f0f0f;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            overflow: hidden; /* Scrollbar မပေါ်အောင် */
+            min-height: 100vh;
         }
 
         .container {
-            position: relative;
             text-align: center;
-            width: 90%;
-            max-width: 450px; /* အနည်းငယ် ပိုကျယ်လာအောင် */
-            background: rgba(0, 0, 0, 0.6); /* Box နောက်ခံ အမှောင်ဖျော့ */
-            padding: 40px 30px;
-            border-radius: 20px;
-            /* Rainbow Glow Animation */
-            animation: rainbowGlow 10s infinite alternate;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8); /* Start with red glow */
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 25px;
+            width: 85%;
+            max-width: 400px;
+            border: 2px solid #333;
+            /* Container ဘောင်ကိုပါ Rainbow ပြေးစေခြင်း */
+            animation: rainbowRotate 5s infinite linear;
         }
 
         .logo {
-            width: 150px; /* Logo အရွယ်အစား */
-            height: 150px;
-            border-radius: 50%; /* အဝိုင်းပုံစံဖြစ်အောင် */
-            object-fit: cover; /* ပုံမပျက်အောင် */
-            margin-bottom: 25px;
-            border: 4px solid white; /* Logo အနားသတ်ဖြူ */
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Logo ကို အဖြူရောင် glow ပေးခြင်း */
+            width: 130px;
+            height: 130px;
+            border-radius: 15px;
+            border: 2px solid #fff;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
         }
 
         h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            letter-spacing: 3px;
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 2.3rem;
+            margin-bottom: 5px;
             text-transform: uppercase;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7); /* စာလုံးကို glow ပေးခြင်း */
+            /* Blue Metal Effect */
+            color: #add8e6;
+            text-shadow: 0 0 8px #00e0ff;
+            background: linear-gradient(to top, #0a3d62, #00c0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.5);
         }
 
         p {
-            margin-bottom: 40px;
-            color: #e0e0e0;
-            font-size: 1.1em;
+            color: #777;
+            font-size: 0.85rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
         }
 
         .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 15px;
         }
 
         .glow-button {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 18px 25px;
-            text-decoration: none;
+            padding: 14px;
             color: white;
+            text-decoration: none;
             font-weight: bold;
-            font-size: 1.2rem;
             border-radius: 12px;
-            background: rgba(255, 0, 0, 0.2); /* အနီရောင်မှိန်မှိန် */
-            transition: 0.4s ease-in-out;
-            border: 2px solid #ff0000; /* အနီရောင် အနားသတ် */
-            box-shadow: 0 0 15px #ff0000; /* အနီရောင် Glow */
+            background: rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+            /* Button ဘောင်ကို Rainbow ပြောင်းထားသည် */
+            border: 2px solid;
+            animation: rainbowRotate 4s infinite linear;
+            transition: 0.3s;
         }
 
-        /* Button Hover Effect ကို Rainbow Glow နဲ့လိုက်အောင် ပြောင်းလဲခြင်း */
         .glow-button:hover {
-            background: rgba(255, 0, 0, 0.5); /* Hover လုပ်ရင် ပိုနီလာအောင် */
-            transform: translateY(-5px) scale(1.03); /* အနည်းငယ် မြင့်တက်ပြီး ကြီးလာအောင် */
-            box-shadow: 0 0 20px #ff0000, 0 0 40px #ff4444; /* Glow ပိုတောက်ပလာအောင် */
-            border-color: #ff4444;
+            transform: scale(1.03);
+            background: rgba(255, 255, 255, 0.1);
+            /* Hover လုပ်ရင် Glow နည်းနည်း ပိုတောက်လာမည် */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
 
-        /* Button အတွင်း ပုံစံ */
         .btn-icon {
-            width: 35px;
-            height: 35px;
-            margin-right: 15px;
-            object-fit: contain;
-            border-radius: 8px; /* အနည်းငယ် ဝိုင်းအောင် */
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="Zsnixstudo.jpg" alt="Zsnixstudo Logo" class="logo">
+        <img src="Zsnixstudo.jpg" alt="Logo" class="logo">
         
-        <h1>ZSNIXSTUDO</h1>
-        <p>Discover Your Favorite Telegram Channels</p>
+        <h1>ZSNIX STUDIO</h1>
+        <p>Zsnix Work Library  </p>
 
         <div class="btn-group">
-            <a href="https://t.me/your_channel_link_1" target="_blank" class="glow-button">
-                CHANNEL ONE
+            <a href="https://t.me/Zsnix" target="_blank" class="glow-button">
+                Main Channel
             </a>
-
-            <a href="https://t.me/your_channel_link_2" target="_blank" class="glow-button">
-                CHANNEL TWO
+            <a href="https://t.me/Genie1122" target="_blank" class="glow-button">
+                Services Channel
             </a>
-
-            <a href="https://t.me/your_channel_link_3" target="_blank" class="glow-button">
-                CHANNEL THREE
+            <a href="https://t.me/+TPx7j4Kc0y82NzNl" target="_blank" class="glow-button">
+                Rsell Group
             </a>
         </div>
     </div>
