@@ -3,130 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLBB Diamond Shop - Fun Project</title>
+    <title>MLBB Diamond Store | Premium Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* CSS ပိုင်း - အလှဆင်ခြင်း */
+        :root {
+            --primary: #facc15;
+            --accent: #3b82f6;
+            --bg: #0b0f19;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a;
-            color: white;
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top right, #1e293b, #0b0f19);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             margin: 0;
-            padding: 20px;
-            text-align: center;
+            overflow-x: hidden;
         }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: #1e293b;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-        }
-        h1 { color: #facc15; }
-        .input-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        input {
+
+        /* Premium Card Container */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 24px;
             width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: none;
-            box-sizing: border-box;
+            max-width: 450px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.8s ease-out;
         }
-        .diamond-grid {
+
+        h1 {
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            background: linear-gradient(to right, #facc15, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        /* Input Styles */
+        .input-box {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 12px 15px;
+            color: white;
+            width: 100%;
+            box-sizing: border-box;
+            outline: none;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .input-box:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(250, 204, 21, 0.2);
+        }
+
+        /* Diamond Grid */
+        .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 20px;
+            gap: 15px;
+            margin: 25px 0;
         }
-        .dia-card {
-            background: #334155;
-            padding: 15px;
-            border-radius: 10px;
+
+        .item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #334155;
+            padding: 20px 10px;
+            border-radius: 16px;
             cursor: pointer;
-            border: 2px solid transparent;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .item.selected {
+            border-color: var(--primary);
+            background: rgba(250, 204, 21, 0.1);
+        }
+
+        .item span {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .item .price {
+            font-size: 0.75rem;
+            color: #4ade80;
+            margin-top: 5px;
+        }
+
+        /* Buy Button */
+        .buy-btn {
+            background: linear-gradient(135deg, #facc15, #eab308);
+            color: #000;
+            border: none;
+            padding: 16px;
+            width: 100%;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 10px 15px -3px rgba(250, 204, 21, 0.3);
             transition: 0.3s;
         }
-        .dia-card:hover { border-color: #facc15; }
-        .dia-card.active { border-color: #facc15; background: #475569; }
-        .price { color: #4ade80; font-weight: bold; }
-        button {
-            width: 100%;
-            padding: 15px;
-            background: #facc15;
-            border: none;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-top: 20px;
-            cursor: pointer;
+
+        .buy-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 20px -3px rgba(250, 204, 21, 0.4);
         }
-        button:hover { background: #eab308; }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>MLBB Top-up 💎</h1>
-    <p>အပျင်းပြေ Diamond ဝယ်ကြည့်ရအောင်!</p>
+<div class="glass-card">
+    <h1>MLBB PREMIUM</h1>
+    <div class="subtitle">Enter your details and select your pack</div>
 
-    <div class="input-group">
-        <label>Player ID & Zone ID ထည့်ပါ</label>
-        <div style="display: flex; gap: 5px;">
-            <input type="number" id="playerId" placeholder="ID (12345678)">
-            <input type="number" id="zoneId" placeholder="Zone (1234)" style="width: 40%;">
-        </div>
+    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+        <input type="number" id="uid" class="input-box" placeholder="Player ID">
+        <input type="number" id="zid" class="input-box" style="width: 100px;" placeholder="Zone">
     </div>
 
-    <div class="diamond-grid">
-        <div class="dia-card" onclick="selectDia(this, 86, 2500)">
-            <div>86 Diamonds</div>
+    <div class="grid">
+        <div class="item" onclick="select(this, '86', '2,500')">
+            <span>💎 86 Diamonds</span>
             <div class="price">2,500 Ks</div>
         </div>
-        <div class="dia-card" onclick="selectDia(this, 172, 5000)">
-            <div>172 Diamonds</div>
-            <div class="price">5,000 Ks</div>
+        <div class="item" onclick="select(this, '172', '4,800')">
+            <span>💎 172 Diamonds</span>
+            <div class="price">4,800 Ks</div>
         </div>
-        <div class="dia-card" onclick="selectDia(this, 257, 7500)">
-            <div>257 Diamonds</div>
-            <div class="price">7,500 Ks</div>
+        <div class="item" onclick="select(this, '257', '7,200')">
+            <span>💎 257 Diamonds</span>
+            <div class="price">7,200 Ks</div>
         </div>
-        <div class="dia-card" onclick="selectDia(this, 706, 18500)">
-            <div>706 Diamonds</div>
-            <div class="price">18,500 Ks</div>
+        <div class="item" onclick="select(this, '706', '18,000')">
+            <span>💎 706 Diamonds</span>
+            <div class="price">18,000 Ks</div>
         </div>
     </div>
 
-    <button onclick="orderNow()">အခုဝယ်မယ်</button>
+    <button class="buy-btn" onclick="checkout()">PURCHASE NOW</button>
 </div>
 
 <script>
-    /* JavaScript ပိုင်း - အလုပ်လုပ်ပုံ */
-    let selectedAmount = 0;
-    let selectedPrice = 0;
+    let selectedPkg = null;
 
-    function selectDia(element, amount, price) {
-        // အရင်ရွေးထားတာတွေကို ဖျက်တယ်
-        document.querySelectorAll('.dia-card').forEach(card => card.classList.remove('active'));
-        // အခုရွေးတာကို အရောင်ပြောင်းတယ်
-        element.classList.add('active');
-        selectedAmount = amount;
-        selectedPrice = price;
+    function select(el, amount, price) {
+        document.querySelectorAll('.item').forEach(i => i.classList.remove('selected'));
+        el.classList.add('selected');
+        selectedPkg = { amount, price };
     }
 
-    function orderNow() {
-        const id = document.getElementById('playerId').value;
-        const zone = document.getElementById('zoneId').value;
+    function checkout() {
+        const id = document.getElementById('uid').value;
+        const zone = document.getElementById('zid').value;
 
-        if(!id || !zone || selectedAmount === 0) {
-            alert("ID နဲ့ Diamond ပမာဏ အရင်ရွေးပါဦးဗျ!");
+        if(!id || !zone || !selectedPkg) {
+            alert("အချက်အလက်တွေ အပြည့်အစုံ ဖြည့်ပေးပါဦးဗျ!");
             return;
         }
 
-        const message = `MLBB Diamond ဝယ်ယူမှု အောင်မြင်ပါတယ်!\n\nID: ${id} (${zone})\nပမာဏ: ${selectedAmount} Dia\nကျသင့်ငွေ: ${selectedPrice} Ks\n\nကျေးဇူးတင်ပါတယ်!`;
-        alert(message);
+        alert(`✅ Order Received!\n\nID: ${id} (${zone})\nPackage: ${selectedPkg.amount} Diamonds\nPrice: ${selectedPkg.price} Ks\n\nPayment စနစ်ကို နောက် Version မှာ ထည့်ပေးပါ့မယ်။`);
     }
 </script>
 
