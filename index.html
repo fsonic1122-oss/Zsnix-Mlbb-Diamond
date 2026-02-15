@@ -1,1 +1,116 @@
-<img src="Zsnixstudo.jpg">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zsnixstudo - Telegram Directory</title>
+    <style>
+        /* CSS ကို ဒီထဲမှာ တစ်ခါတည်း ထည့်ထားပါတယ် */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('Zsnixstudo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        /* ပုံပေါ်မှာ စာကြည်လင်အောင် အမှောင်လွှာ အုပ်ထားတာပါ */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        p {
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .glow-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: 2px solid #ff0000;
+            border-radius: 12px;
+            background: rgba(255, 0, 0, 0.1);
+            transition: 0.3s;
+            /* အနီရောင် Glow Effect */
+            box-shadow: 0 0 10px #ff0000, inset 0 0 5px #ff0000;
+        }
+
+        .glow-button:hover {
+            background: #ff0000;
+            box-shadow: 0 0 25px #ff0000, 0 0 50px #ff4444;
+            transform: scale(1.05);
+        }
+
+        /* ပုံထည့်ချင်ရင် သုံးဖို့ icon style */
+        .btn-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay"></div>
+
+    <div class="container">
+        <h1>ZSNIXSTUDO</h1>
+        <p>Choose your Telegram Channel</p>
+
+        <div class="btn-group">
+            <a href="https://t.me/your_link_1" class="glow-button">
+                CHANNEL ONE
+            </a>
+
+            <a href="https://t.me/your_link_2" class="glow-button">
+                CHANNEL TWO
+            </a>
+
+            <a href="https://t.me/your_link_3" class="glow-button">
+                CHANNEL THREE
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
